@@ -22,5 +22,9 @@
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.0.0"
+  },
+  "dependencies": {
+    "jsondiffpatch": "^0.2.5",
+    "lodash": "^4.17.4"
   }
 }
