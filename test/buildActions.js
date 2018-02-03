@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect,
   buildActions = require('../src/buildActions'),
-  createCustomer = require('./fictures');
+  createCustomer = require('./fixtures');
 
 describe('#buildActions', function() {
   //TODO: Add generator for test objects
@@ -42,5 +42,10 @@ describe('#buildActions', function() {
 
   it('should return error when object contains non-string values', function() {
     expect(() => buildActions(customer, failingCustomer)).to.throw(Error);
+  });
+
+  it('should return empty array when sending in duplicate customers', function() {
+    const result = buildActions(newCustomer, newCustomer);
+    expect(result).to.eql([]);
   });
 });

@@ -14,11 +14,11 @@ module.exports = (oldCustomer, newCustomer) => {
 
   const diff = jsondiffpatch.diff(oldCustomer, newCustomer);
 
-  console.log('The difference between old and new customer: \n', diff);
+  // console.log('The difference between old and new customer: \n', diff);
 
   const actions = [];
 
-  for (const [field, changes] of Object.entries(diff)) {
+  for (const [field, changes] of Object.entries(diff || {})) {
     const [oldValue, newValue, isDeleted] = changes;
 
     let operation = null;
