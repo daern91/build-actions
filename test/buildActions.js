@@ -31,8 +31,12 @@ describe('#buildActions', function() {
     expect(result).to.eql(expectedResult);
   });
 
-  it('should return error when non-object arguments are passed', function() {
+  it('should return error when string arguments are passed', function() {
     expect(() => buildActions('customer', 'newCustomer')).to.throw(Error);
+  });
+
+  it('should return error when array arguments are passed', function() {
+    expect(() => buildActions([], newCustomer)).to.throw(Error);
   });
 
   it('should return error when object contains non-string values', function() {
