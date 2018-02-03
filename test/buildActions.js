@@ -19,11 +19,23 @@ describe('#buildActions', function() {
     address: 'newAddress'
   };
 
+  const failingCustomer = {
+    address: []
+  };
+
   const expectedResult = ['changeEmail', 'changeFirstName', 'deleteLastName', 'setMiddleName', 'setAddress'];
 
-  it('should return change functions', function() {
+  it('should return change functions on success', function() {
     const result = buildActions(customer, newCustomer);
 
     expect(result).to.eql(expectedResult);
+  });
+
+  it('should return error when non-object arguments are passed', function() {
+    expect(() => buildActions('customer', 'newCustomer')).to.throw(Error);
+  });
+
+  it('should return error when object contains non-string values', function() {
+    expect(() => buildActions(customer, failingCustomer)).to.throw(Error);
   });
 });
