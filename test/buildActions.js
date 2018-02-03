@@ -1,7 +1,8 @@
 'use strict';
 
 const expect = require('chai').expect,
-  buildActions = require('../src/buildActions');
+  buildActions = require('../src/buildActions'),
+  createCustomer = require('./fictures');
 
 describe('#buildActions', function() {
   //TODO: Add generator for test objects
