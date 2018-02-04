@@ -1,16 +1,16 @@
-'use strict';
+'use strict'
 
-const faker = require('faker');
+const faker = require('faker')
 
-module.exports = function createCustomer() {
-  const addresses = [];
-  const amount = Math.ceil(Math.random() * 3);
+module.exports = function createCustomer () {
+  const addresses = []
+  const amount = Math.ceil(Math.random() * 3)
 
   for (let i = 0; i < amount; i++) {
     addresses.push({
       address: faker.address.streetAddress(),
       addressId: faker.random.uuid()
-    });
+    })
   }
 
   return {
@@ -22,5 +22,5 @@ module.exports = function createCustomer() {
     customerGroup: faker.commerce.department(),
     companyName: faker.company.companyName(),
     address: addresses
-  };
-};
+  }
+}

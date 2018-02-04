@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-const buildActions = require('./buildActions');
+const buildActions = require('./buildActions')
 
-module.exports = buildActions;
+module.exports = buildActions

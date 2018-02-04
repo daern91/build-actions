@@ -10,10 +10,10 @@
     "test": "mocha --reporter spec",
     "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
     "generate-data": "node scripts/generateData.js",
-    "format": "prettier-standard 'src/**/*.js'",
+    "format": "prettier-standard '**/*.js'",
     "precommit": "lint-staged"
   },
-  "lint-staged": { "linters": { "src/**/*.js": ["prettier-standard", "git add"] } },
+  "lint-staged": { "linters": { "**/*.js": ["prettier-standard", "git add"] } },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/daern91/build-actions.git"
