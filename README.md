@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/daern91/build-actions.svg?branch=master)](https://travis-ci.org/daern91/build-actions)
 [![Coverage Status](https://coveralls.io/repos/github/daern91/build-actions/badge.svg?branch=master)](https://coveralls.io/github/daern91/build-actions?branch=master)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 
 A small library to diff Customers and build update actions.
 
@@ -53,5 +55,5 @@ const actions = buildActions(oldCustomerObject, newCustomerObject);
 * [x] Lint
 * [x] README
 * [x] Use ES6
-* [x] Travis build
+* [x] TravisCI
 * [ ] Cucumber features for CLI integration tests (provided that you did the advanced part)
