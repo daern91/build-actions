@@ -7,13 +7,17 @@
     "clitest": "bin/cli.js"
   },
   "scripts": {
-    "test": "mocha --reporter spec",
+    "test": "standard && mocha --reporter spec",
     "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- -R spec test/*",
     "generate-data": "node scripts/generateData.js",
     "format": "prettier-standard '**/*.js'",
     "precommit": "lint-staged"
   },
-  "lint-staged": { "linters": { "**/*.js": ["prettier-standard", "git add"] } },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": ["prettier-standard", "git add"]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/daern91/build-actions.git"
@@ -33,7 +37,8 @@
     "lint-staged": "^6.1.0",
     "make-dir": "^1.1.0",
     "mocha": "^5.0.0",
-    "prettier-standard": "^8.0.0"
+    "prettier-standard": "^8.0.0",
+    "standard": "^10.0.3"
   },
   "dependencies": {
     "jsondiffpatch": "^0.2.5",

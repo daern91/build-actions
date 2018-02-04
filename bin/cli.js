@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-const lib = require('../src')
 const path = require('path')
 
 program
@@ -12,9 +11,9 @@ program
     const filePath = path.join(process.cwd(), args.file)
     console.log(filePath)
 
-    const data = require('../testCustomers/data.json'),
-      newData = require(filePath),
-      buildActions = require('../src/buildActions')
+    const data = require('../testCustomers/data.json')
+    const newData = require(filePath)
+    const buildActions = require('../src/buildActions')
 
     function findCustomer (id) {
       for (const item of data) {

@@ -1,12 +1,12 @@
 'use strict'
 
-const expect = require('chai').expect,
-  buildActions = require('../src/buildActions'),
-  createCustomer = require('./fixtures')
+/* global describe, it */
+
+const expect = require('chai').expect
+const buildActions = require('../src/buildActions')
+const createCustomer = require('./fixtures')
 
 describe('#buildActions', function () {
-  // TODO: Add generator for test objects
-
   const customer = {
     email: 'hej@exempel.se',
     firstName: 'Mutton',
@@ -24,13 +24,9 @@ describe('#buildActions', function () {
     address: []
   }
 
-  const expectedResult = [
-    'changeEmail',
-    'changeFirstName',
-    'deleteLastName',
-    'setMiddleName',
-    'setAddress'
-  ]
+  const expectedResult = ['changeEmail', 'setMiddleName', 'addAddress']
+
+  const fakeCustomer = createCustomer()
 
   it('should return change functions on success', function () {
     const result = buildActions(customer, newCustomer)
@@ -52,6 +48,31 @@ describe('#buildActions', function () {
 
   it('should return empty array when sending in duplicate customers', function () {
     const result = buildActions(newCustomer, newCustomer)
+
     expect(result).to.eql([])
+  })
+
+  it('should return set and change address functions ', function () {
+    let newFakeCustomer = JSON.parse(JSON.stringify(fakeCustomer))
+
+    newFakeCustomer.address[0].address = 'Sonnennallee'
+    newFakeCustomer.address.push({ address: 'Sonnennallee', addressId: '1' })
+
+    console.log(fakeCustomer)
+    console.log(newFakeCustomer)
+
+    const result = buildActions(fakeCustomer, newFakeCustomer)
+
+    expect(result).to.eql(['changeAddress', 'addAddress'])
+  })
+
+  it('should return delete address functions ', function () {
+    let newFakeCustomer = JSON.parse(JSON.stringify(fakeCustomer))
+
+    newFakeCustomer.address.pop()
+
+    const result = buildActions(fakeCustomer, newFakeCustomer)
+
+    expect(result).to.eql(['deleteAddress'])
   })
 })
