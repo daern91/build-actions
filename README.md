@@ -7,12 +7,50 @@ A small library to diff Customers and build update actions.
 
 ## Installation
 
+### Required Tools and Dependencies
+
+* Node (This project uses the current LTS node version, which is `v8.9.4`)
+
+### Setup (git)
+
+Execute these commands in the project's root directory:
+
+* `git clone https://github.com/daern91/build-actions.git` - Clone the git repo
+* `cd build-actions/` - Move into package folder
+* `npm i` - Install all dependencies
+
+## CLI Usage
+
+* `npm run generate-data` - Generate a data.json file with test customers.
+* Duplicate the data.json file and change some of the customer info in the new copy, e.g. `email`.
+* `clitest import --file testCustomers/<newFileName.json>`
+
+## Setup (npm)
+
 `npm install @daern91/build-actions`
 
 ## Usage
 
-//TODO: Add usage information
+const buildActions = require('@daern91/build-actions');
+
+const actions = buildActions(oldCustomerObject, newCustomerObject);
+
+Output should be an array of update actions
 
 ## Tests
 
-`npm test`
+* `npm test` or `npm run cover` for full testing including coverage.
+
+### Requirements
+
+* [x] Setup the project in a github repository
+* [x] Export `buildActions` function
+* [x] Create test data generator
+* [x] Write a CLI (matching with ID instead of name)
+* [ ] Provide JSDoc
+* [x] Tests
+* [ ] Lint
+* [x] README
+* [x] Use ES6
+* [x] Travis build
+* [ ] Cucumber features for CLI integration tests (provided that you did the advanced part)
