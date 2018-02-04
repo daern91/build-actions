@@ -49,7 +49,7 @@ Output should be an array of update actions
 * [x] Write a CLI (matching with ID instead of name)
 * [ ] Provide JSDoc
 * [x] Tests
-* [ ] Lint
+* [x] Lint
 * [x] README
 * [x] Use ES6
 * [x] Travis build
