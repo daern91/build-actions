@@ -11,9 +11,7 @@ function getActionType (oldValue, newValue, isDeleted) {
   } else if (!_.isNil(oldValue) && !_.isNil(newValue)) {
     return 'change'
   } else {
-    throw new Error(
-      'Incorrect data type (Object value should be crowded string).'
-    )
+    throw new Error('Incorrect data type')
   }
 }
 
@@ -25,6 +23,8 @@ function getActionFromDiff (diff, field) {
   if (field.indexOf('address') >= 0 && operation === 'set') {
     operation = 'add'
   }
+
+  // TODO: Add rest of allowed calls from docs
   const allowedFields = [
     'firstName',
     'lastName',

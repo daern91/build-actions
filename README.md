@@ -4,7 +4,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/daern91/build-actions/badge.svg?branch=master)](https://coveralls.io/github/daern91/build-actions?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-
 A small library to diff Customers and build update actions.
 
 ## Installation
@@ -25,13 +24,14 @@ Execute these commands in the project's root directory:
 
 * `npm run generate-data` - Generate a data.json file with test customers.
 * Duplicate the data.json file and change some of the customer info in the new copy, e.g. `email`.
-* `clitest import --file testCustomers/<newFileName.json>`
+* `buildactions import --file testCustomers/<newFileName.json>`
 
 ## Setup (npm)
 
 `npm install @daern91/build-actions`
 
 ## Usage
+
 ```javascript
 const buildActions = require('@daern91/build-actions');
 
@@ -40,9 +40,12 @@ const actions = buildActions(oldCustomerObject, newCustomerObject);
 // Output should be an array of update actions
 ```
 
+**NOTE: You may also use CLI by installing package globally with `npm install @daern91/build-actions -g`**
+
 ## Tests
 
-* `npm test` or `npm run cover` for full testing including coverage.
+* `npm test` for full testing including lint.
+* `npm run cover` for full testing including coverage.
 
 ### Requirements
 
