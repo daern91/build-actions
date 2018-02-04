@@ -30,12 +30,13 @@ Execute these commands in the project's root directory:
 `npm install @daern91/build-actions`
 
 ## Usage
-
+```javascript
 const buildActions = require('@daern91/build-actions');
 
 const actions = buildActions(oldCustomerObject, newCustomerObject);
 
-Output should be an array of update actions
+// Output should be an array of update actions
+```
 
 ## Tests
 
